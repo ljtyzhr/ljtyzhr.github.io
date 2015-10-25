@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>自己动手DIY一下Octopress的风格 - Ljtyzhr's Blog</title>
+  <meta name="author" content="ljtyzhr">
+
+  
+  <meta name="description" content="http://cn.soulmachine.me/blog/20130402/ 1、首页显示摘要 当我写了三四篇文章，并发布在博客上之后，我发现了一个问题，就是这些文章会很坑爹，它让我感到很不爽的一点就是我要找到一篇文章会很困难，在首页上，他会显示出我的整个文章，而不是显示摘要！！！ 摘要 不能忍 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ljtyzhr.github.io/blog/2015/10/21/change-special-style">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ljtyzhr's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><div class="header-left">
+  <hgroup>
+  <h1><a href="/">Ljtyzhr's Blog</a></h1>
+  
+  <div class="subtitle">
+    <h2>左手编程，右手写诗.</h2>
+  </div>
+  
+  </hgroup>
+  
+</div>
+
+<div class="header-right">
+  <ul class="main-navigation">
+ <div> 
+  <li><a href="/">blog</a></li></div><div class="spacer"></div>
+     <div> 
+  <li><a href="/projects">projects</a></li></div><div class="spacer"></div>
+       <div> 
+  <li><a href="/work">work</a></li></div><div class="spacer"></div>
+         <div> 
+  <li><a href="/about">about</a></li></div>
+</ul>
+  
+
+</div>
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">自己动手DIY一下Octopress的风格</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-10-21T19:32:51+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://cn.soulmachine.me/blog/20130402/">http://cn.soulmachine.me/blog/20130402/</a></p>
+
+<h2>1、首页显示摘要</h2>
+
+<p>当我写了三四篇文章，并发布在博客上之后，我发现了一个问题，就是这些文章会很坑爹，它让我感到很不爽的一点就是我要找到一篇文章会很困难，在首页上，他会显示出我的整个文章，而不是显示摘要！！！</p>
+
+<h3>摘要</h3>
+
+<p>不能忍，看到很多博客上都会显示摘要，然后一个 <strong><code>更多</code></strong> 这样的按钮，点击之后跳转到博客的详情页面上去，那么我该怎么做呢？
+好吧，其实也很简单，就是在我们所写好的文章中，添加一个标签，这个标签前面的内容，会显示在首页上，标签后面的内容就不会再显示出来，而是被<strong><code>更多</code></strong>或者<strong><code>Read On</code></strong>所替代。标签如下：</p>
+
+<blockquote><p>&lt;!–- more -–></p></blockquote>
+
+<p>注意一个问题，这个只是一个摘要标识符，可以在<code>_config.yml</code>中通过<code>excerpt_separator</code>参数指定。由于使用了HTML的注释的写法，在博客正文中不会出现摘要标识符，标识符前的内容会在博客正文中显示。</p>
+
+<!--more-->
+
+
+<h3>汉化</h3>
+
+<p>如果我们想要显示中文的提示<strong><code>更多</code></strong>而不是英文的<strong><code>Read On</code></strong>，那么我们可以修改<code>_config.yml</code>文件中的<code>excerpt_link</code>信息，如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>excerpt_link: "Read on &rarr;" 
+</span><span class='line'>excerpt_link: "更多 &rarr;" </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2、右侧导航</h2>
+
+<h3>About</h3>
+
+<p>在目录<code>_include/custom/asides/</code>中创建一个文件，命名为<code>about.html</code>，内容如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;section&gt;
+</span><span class='line'>  &lt;p&gt;This is my blogs.&lt;/a&gt;!&lt;/p&gt;
+</span><span class='line'>  &lt;p&gt;如果想了解关于我&lt;a href="/about/"&gt;更多&lt;/a&gt; 界面. 我的 Github 地址是 &lt;a href="https://github.com/ljtyzhr"&gt;这里&lt;/a&gt;.&lt;/p&gt;
+</span><span class='line'>&lt;/section&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>修改配置文件<code>_config.yml</code>，找到其中的<code>default_asides</code>，修改为：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>default_asides: [asides/about.html, asides/recent_posts.html]</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>分类</h2>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">ljtyzhr</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-10-21T19:32:51+08:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/10/19/change-blog-theme/" title="Previous Post: 更换一个个性化的主题风格">&laquo; 更换一个个性化的主题风格</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  <section>
+  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  
+
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
+  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <div class="social-icons">
+    
+
+    
+
+    
+
+    
+  <a href="https://github.com/ljtyzhr"><i class="fa fa-github fa-3x"></i></a>
+
+
+    
+
+  </div>
+</section>
+
+  <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/10/21/change-special-style/">自己动手DIY一下Octopress的风格</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/19/change-blog-theme/">更换一个个性化的主题风格</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/18/change-the-blog-config/">在Octopress中修改我们的博客配置</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/17/how-to-write-blog/">如何使用Octopress写作和发布博客</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/17/how-to-build-github-blog/">使用Octopress在Github上搭建博客系统</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+    <section>
+  <h1>Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/10/21/change-special-style/">自己动手DIY一下Octopress的风格</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/19/change-blog-theme/">更换一个个性化的主题风格</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/18/change-the-blog-config/">在Octopress中修改我们的博客配置</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/17/how-to-write-blog/">如何使用Octopress写作和发布博客</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/17/how-to-build-github-blog/">使用Octopress在Github上搭建博客系统</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ljtyzhr">@ljtyzhr</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ljtyzhr',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - ljtyzhr -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<p>
+<span>Copyright &copy; 2015  ljtyzhr -</span>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/fapper/classic-martinb">classic-martinb</a> theme</span>
+</p>
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Ljtyzhr's Blog]]></title>
+  <link href="http://ljtyzhr.github.io/atom.xml" rel="self"/>
+  <link href="http://ljtyzhr.github.io/"/>
+  <updated>2015-10-25T14:48:43+08:00</updated>
+  <id>http://ljtyzhr.github.io/</id>
+  <author>
+    <name><![CDATA[ljtyzhr]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[自己动手DIY一下Octopress的风格]]></title>
+    <link href="http://ljtyzhr.github.io/blog/2015/10/21/change-special-style/"/>
+    <updated>2015-10-21T19:32:51+08:00</updated>
+    <id>http://ljtyzhr.github.io/blog/2015/10/21/change-special-style</id>
+    <content type="html"><![CDATA[<p><a href="http://cn.soulmachine.me/blog/20130402/">http://cn.soulmachine.me/blog/20130402/</a></p>
+
+<h2>1、首页显示摘要</h2>
+
+<p>当我写了三四篇文章，并发布在博客上之后，我发现了一个问题，就是这些文章会很坑爹，它让我感到很不爽的一点就是我要找到一篇文章会很困难，在首页上，他会显示出我的整个文章，而不是显示摘要！！！</p>
+
+<h3>摘要</h3>
+
+<p>不能忍，看到很多博客上都会显示摘要，然后一个 <strong><code>更多</code></strong> 这样的按钮，点击之后跳转到博客的详情页面上去，那么我该怎么做呢？
+好吧，其实也很简单，就是在我们所写好的文章中，添加一个标签，这个标签前面的内容，会显示在首页上，标签后面的内容就不会再显示出来，而是被<strong><code>更多</code></strong>或者<strong><code>Read On</code></strong>所替代。标签如下：</p>
+
+<blockquote><p>&lt;!–- more -–></p></blockquote>
+
+<p>注意一个问题，这个只是一个摘要标识符，可以在<code>_config.yml</code>中通过<code>excerpt_separator</code>参数指定。由于使用了HTML的注释的写法，在博客正文中不会出现摘要标识符，标识符前的内容会在博客正文中显示。</p>
+
+<!--more-->
+
+
+<h3>汉化</h3>
+
+<p>如果我们想要显示中文的提示<strong><code>更多</code></strong>而不是英文的<strong><code>Read On</code></strong>，那么我们可以修改<code>_config.yml</code>文件中的<code>excerpt_link</code>信息，如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>excerpt_link: "Read on &rarr;" 
+</span><span class='line'>excerpt_link: "更多 &rarr;" </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2、右侧导航</h2>
+
+<h3>About</h3>
+
+<p>在目录<code>_include/custom/asides/</code>中创建一个文件，命名为<code>about.html</code>，内容如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;section&gt;
+</span><span class='line'>  &lt;p&gt;This is my blogs.&lt;/a&gt;!&lt;/p&gt;
+</span><span class='line'>  &lt;p&gt;如果想了解关于我&lt;a href="http://ljtyzhr.github.io/about/"&gt;更多&lt;/a&gt; 界面. 我的 Github 地址是 &lt;a href="https://github.com/ljtyzhr"&gt;这里&lt;/a&gt;.&lt;/p&gt;
+</span><span class='line'>&lt;/section&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>修改配置文件<code>_config.yml</code>，找到其中的<code>default_asides</code>，修改为：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>default_asides: [asides/about.html, asides/recent_posts.html]</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>分类</h2>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[更换一个个性化的主题风格]]></title>
+    <link href="http://ljtyzhr.github.io/blog/2015/10/19/change-blog-theme/"/>
+    <updated>2015-10-19T16:14:46+08:00</updated>
+    <id>http://ljtyzhr.github.io/blog/2015/10/19/change-blog-theme</id>
+    <content type="html"><![CDATA[<h2>1、准备</h2>
+
+<p>兵马未动，粮草先行，万事都是以准备工作开始的。前面我们简单介绍了如何搭建博客、写作和发表博客以及做一些配置上的修改。
+不过有没有人跟我有一样的感受：这个Octopress默认的主题简直看不下去了？好吧，这种东西还是不要说出来的好，萝卜白菜，各有所爱。</p>
+
+<p>如果是想和我一样来修改主题的，那么先告诉大家一个好地方咯，如下是一些第三方主题，我们可以从中选出自己满意的：</p>
+
+<p><code>https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes</code></p>
+
+<h2>2、地址</h2>
+
+<p>这个不用说太多吧，看中了之后就开始找下载地址了，我选中的主题是：<strong>classic-martinb</strong></p>
+
+<p>它的整个界面风格如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/martinbjeldbak/classic-martinb/master/classic-martinb.png" alt="这里有一幅图，可能加载比较慢而已，稍等！" /></p>
+
+<p>这个主题的地址，如下：
+<a href="https://github.com/martinbjeldbak/classic-martinb"><strong>https://github.com/martinbjeldbak/classic-martinb</strong></a></p>
+
+<!--more-->
+
+
+<h2>3、安装</h2>
+
+<p>差点忘了，我们是要在命令行操作数据的，安装这个工作肯定也是放在命令行来咯。
+在主题作者的博客中就有命令行的提示，我们直接抄过来，如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd octopress
+</span><span class='line'>$ git submodule add git://github.com/martinbjeldbak/classic-martinb.git .themes/classic-martinb
+</span><span class='line'>$ rake install['classic-martinb']
+</span><span class='line'>$ rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当我的命令行出现如下的信息，我觉得我应该是已经下载成功，开始安装：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Cloning into '.themes/classic-martinb'...
+</span><span class='line'>remote: Counting objects: 331, done.
+</span><span class='line'>remote: Total 331 (delta 0), reused 0 (delta 0), pack-reused 331
+</span><span class='line'>Receiving objects: 100% (331/331), 1.65 MiB | 67.00 KiB/s, done.
+</span><span class='line'>Resolving deltas: 100% (104/104), done.
+</span><span class='line'>Checking connectivity... done.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当我在命令行进行安装命令的时候，出现如下信息：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>A theme is already installed, proceeding will overwrite existing files. Are you sure? [y/n]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我选择了y，也就是yes咯</p>
+
+<h2>4、预览</h2>
+
+<p>预览的命令之前已经介绍过了，为了避免无谓的提交数据到服务器，我们先在本地预览一下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>打开浏览器，输入：<strong><code>http://localhost:4000</code></strong>，如果与我们预期的情况一致，那么输入如下命令，部署上线吧：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>5、提交</h2>
+
+<p>最后，比忘了提交文件，命令行复习一下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git add .
+</span><span class='line'>git commit -m 'Change blog theme.'
+</span><span class='line'>git push origin source</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在Octopress中修改我们的博客配置]]></title>
+    <link href="http://ljtyzhr.github.io/blog/2015/10/18/change-the-blog-config/"/>
+    <updated>2015-10-18T17:14:14+08:00</updated>
+    <id>http://ljtyzhr.github.io/blog/2015/10/18/change-the-blog-config</id>
+    <content type="html"><![CDATA[<h2>1、准备工作</h2>
+
+<p>其实这里谈到的准备工作，十分简洁。我们的每一个命令，都是要进入到命令行（有时候也叫做终端）进行的。因为我们的博客使用了Octopress，所以我们需要在octopress目录下进行操作。</p>
+
+<p>所以，命令行如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2、_config.yml</h2>
+
+<p>从名字我们就知道这个是一份配置文件，它到底有一些什么内容呢，抄一部分如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>url: http://yoursite.com  #这里改为你网站的域名
+</span><span class='line'>title: My Octopress Blog  #这里改为你想要的网站标题
+</span><span class='line'>subtitle: A blogging framework for hackers. #这里改为你的博客副标题
+</span><span class='line'>author: Your Name #这里改为博客作者的名字，也就是你的名字
+</span><span class='line'>simple_search: https://www.google.com/search #这是默认搜索引擎，可以先不管
+</span><span class='line'>description: #网站描述信息</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如上<strong> # </strong>之后的解释，这里就不再过多的说明了，按照上面的意思进行修改即可。</p>
+
+<!--more-->
+
+
+<h2>3、链接格式</h2>
+
+<p>前面我们发布了两篇博客，不知道大家有没有觉得标题实在是太长了，尤其是日期，看起来感觉怪怪的。</p>
+
+<p>比如，我的一篇文章的博客地址，是像下面这样的：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://ljtyzhr.github.io/blog/2015/10/17/how-to-build-github-blog/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样看起来层级会不会太多了，一般来说，我们的存储方式，只要是“<strong>20151017</strong>”就已经足够了，没有太多必要像这样“<strong>2015/10/17/</strong>”，也就是说，上面的形式，更改为如下方式：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://ljtyzhr.github.io/blog/20151017/how-to-build-github-blog/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>好的，既然知道如何更改，那么规矩就比较好定义了，还是在上文的配置文件中，我们可以看到如下的一段代码：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>permalink: /blog/:year/:month/:day/:title/ #文章固定链接</span></code></pre></td></tr></table></div></figure>
+
+
+<p>简单修改一下，便可以达到我们的目的，如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>permalink: /blog/:year:month:day/:title/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>实际上也就是把日期之间的 &ldquo;/&rdquo; 去掉了而已。</p>
+
+<h2>4、日期格式</h2>
+
+<p>不知道大家有没有发现一个问题，在我们发布的博客左上角部分，有这样的一个日期标签<code>OCT 17TH, 2015 10:29 PM</code>，这个是我从自己的博客上抄写过来的。</p>
+
+<p>既然是日期格式，我们在<code>_config.yml</code> 继续查找一下 <strong>date</strong> 这个关键字，会找到如下的一行代码：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>date_format: "ordinal" #默认日期显示方式</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果我们想讲上文中的格式，修改成形如“2015 年 10 月 17 日”这样的格式，我们又当如何操作呢？如下，我们只需将<code>ordinal</code>修改一下即可：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>date_format: "%Y 年%-m 月%-d 日" </span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[如何使用Octopress写作和发布博客]]></title>
+    <link href="http://ljtyzhr.github.io/blog/2015/10/17/how-to-write-blog/"/>
+    <updated>2015-10-17T22:29:42+08:00</updated>
+    <id>http://ljtyzhr.github.io/blog/2015/10/17/how-to-write-blog</id>
+    <content type="html"><![CDATA[<h2>写博客</h2>
+
+<p>写博客，我们首先要建立一个文档，使用的命令如下：</p>
+
+<pre><code class="`"> rake new_post["this is title"]
+</code></pre>
+
+<p>文章生成在目录下的<code>source/_posts</code>目录下，文章是markdown格式的，不熟悉该语法的同学可以去Google一下，这里不作太详细的解释。</p>
+
+<p>输入如上的命令之后，我们可以在<code>octopress/source/_posts</code>目录中找到我们生成的文件。该文件以时间和标题命名，一般格式如：<code>yyyy-mm-dd-Post-Title.markdown</code>，当我们打开生成的文件的时候，可以看到文件的内容如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>layout: post
+</span><span class='line'>title: "this is title"
+</span><span class='line'>date: 2015-10-17 21:59
+</span><span class='line'>comments: true
+</span><span class='line'>external-url:
+</span><span class='line'>categories:
+</span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在这里，我们看看上面的每一行都是什么意思：</p>
+
+<ul>
+<li><code>layout</code> 暂时不要理会；</li>
+<li><code>title</code> 是这篇文章显示在最终网页上的标题；</li>
+<li><code>date</code> 部分是详细的文件生成时间，如 2014-04-28 03:35:00；<code>comment</code> 部分表示是否允许评论，目前显示是允许，如果想关闭评论，请改为 false；</li>
+<li><code>categories</code> 指这篇文章的分类目录，请在后面引号中输入，如果没有该目录，则会自动生成。请不要删除这段信息，在这段信息下面开始你的文章内容。</li>
+</ul>
+
+
+<p>关于markdown的格式可以参考这篇文章：<a href="http://wowubuntu.com/markdown/">http://wowubuntu.com/markdown/</a></p>
+
+<!--more-->
+
+
+<p>使用Octopress写博客，主要掌握如下几个常用的命令就好：</p>
+
+<ul>
+<li><code>rake new_post[‘article name’]</code> 生成博文框架，然后修改生成的文件即可</li>
+<li><code>rake generate</code> 生成静态文件</li>
+<li><code>rake watch</code> 检测文件变化，实时生成新内容</li>
+<li><code>rake preview</code> 在本机 4000 端口生成访问内容</li>
+<li><code>rake deploy</code> 发布文件</li>
+</ul>
+
+
+<h2>发布博客</h2>
+
+<p>发布博客相对来说比较简单，逻辑无非是，将写好的文档添加到git中去，然后使用命令将它推送到服务器，然后加载出来。
+嗯，就是这么简单，命令行如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>git add .
+</span><span class='line'>git commit -am "I write a blog" 
+</span><span class='line'>git push origin source
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>发布博客还可以使用另一种命令，它只有一行，如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake gen_deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这实际上就是 <code>generate</code> 和 <code>deploy</code> 的合体</p>
+
+<p><strong>注意：</strong>上面的git命令，实际上是将文件推送到服务器！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用Octopress在Github上搭建博客系统]]></title>
+    <link href="http://ljtyzhr.github.io/blog/2015/10/17/how-to-build-github-blog/"/>
+    <updated>2015-10-17T18:48:56+08:00</updated>
+    <id>http://ljtyzhr.github.io/blog/2015/10/17/how-to-build-github-blog</id>
+    <content type="html"><![CDATA[<h2>1、homebrew</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其间会有提示：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Press</span> <span class="no">RETURN</span> <span class="n">to</span> <span class="n">continue</span> <span class="ow">or</span> <span class="n">any</span> <span class="n">other</span> <span class="n">key</span> <span class="n">to</span> <span class="nb">abort</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>所以按 return 键开始进行下载安装；下载成功的提示如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">==&gt;</span> <span class="no">Installation</span> <span class="n">successful!</span>
+</span><span class='line'><span class="o">==&gt;</span> <span class="no">Next</span> <span class="n">steps</span>
+</span><span class='line'><span class="no">Run</span> <span class="sb">`brew help`</span> <span class="n">to</span> <span class="n">get</span> <span class="n">started</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>表示安装成功！</p>
+
+<h2>2、安装ruby</h2>
+
+<p>安装ruby的过程相对容易，输入下列命令：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">brew</span> <span class="n">install</span> <span class="n">rbenv</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>有的教程还有更多的命令，实际上现在已经全部安装完成了，我们并不需要再敲入更多的命令了，可以使用如下命令进行一定的检测，如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">v</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我们会在终端看到ruby的版本信息。</p>
+
+<!--more-->
+
+
+<h2>3、octopress</h2>
+
+<h3>3.1 克隆项目</h3>
+
+<p>执行命令如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">git</span> <span class="nb">clone</span> <span class="ss">git</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">imathis</span><span class="o">/</span><span class="n">octopress</span><span class="o">.</span><span class="n">git</span> <span class="n">octopress</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后进入octopress：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cd</span> <span class="n">octopress</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>3.2 安装依赖</h3>
+
+<p>安装依赖的命令行如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="n">install</span> <span class="n">bundler</span>
+</span><span class='line'><span class="n">rbenv</span> <span class="n">rehash</span>    <span class="c1"># If you use rbenv, rehash to be able to run the bundle command</span>
+</span><span class='line'><span class="n">bundle</span> <span class="n">install</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装bundler出错，提示信息如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">ERROR</span><span class="p">:</span>  <span class="no">Could</span> <span class="ow">not</span> <span class="n">find</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">gem</span> <span class="s1">&#39;bundler&#39;</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mi">0</span><span class="p">),</span> <span class="n">here</span> <span class="n">is</span> <span class="ss">why</span><span class="p">:</span>
+</span><span class='line'>      <span class="no">Unable</span> <span class="n">to</span> <span class="n">download</span> <span class="n">data</span> <span class="n">from</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">rubygems</span><span class="o">.</span><span class="n">org</span><span class="o">/</span> <span class="o">-</span> <span class="no">Errno</span><span class="o">::</span><span class="ss">ETIMEDOUT</span><span class="p">:</span> <span class="no">Operation</span> <span class="n">timed</span> <span class="n">out</span> <span class="o">-</span> <span class="n">connect</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">rubygems</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">latest_specs</span><span class="o">.</span><span class="mi">4</span><span class="o">.</span><span class="mi">8</span><span class="o">.</span><span class="n">gz</span><span class="p">)</span>
+</span><span class='line'><span class="ss">ERROR</span><span class="p">:</span>  <span class="no">Possible</span> <span class="ss">alternatives</span><span class="p">:</span> <span class="n">bundler</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这里是因为我们连接不上国外的网站。。。。好吧，幸好国内还有淘宝的镜像地址可以使用：<a href="https://ruby.taobao.org">点击跳转</a></p>
+
+<p>使用方式如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">--</span><span class="n">add</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">ruby</span><span class="o">.</span><span class="n">taobao</span><span class="o">.</span><span class="n">org</span><span class="o">/</span> <span class="o">--</span><span class="n">remove</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">rubygems</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+</span><span class='line'><span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">-</span><span class="n">l</span>
+</span><span class='line'><span class="o">***</span> <span class="no">CURRENT</span> <span class="no">SOURCES</span> <span class="o">***</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">ruby</span><span class="o">.</span><span class="n">taobao</span><span class="o">.</span><span class="n">org</span>
+</span><span class='line'><span class="c1"># 请确保只有 ruby.taobao.org</span>
+</span><span class='line'><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">rails</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果你使用 Gemfile 和 Bundle (例如：Rails 项目)</p>
+
+<p>你可以用 Bundler 的 Gem 源代码镜像命令。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">bundle</span> <span class="n">config</span> <span class="n">mirror</span><span class="o">.</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">rubygems</span><span class="o">.</span><span class="n">org</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">ruby</span><span class="o">.</span><span class="n">taobao</span><span class="o">.</span><span class="n">org</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样你不用改你的 Gemfile 的 source。</p>
+
+<p>修改 RVM ，改用本站作为下载源， 提高安装速度。如下，是mac上的修改方法：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="o">.</span><span class="n">bak</span> <span class="s1">&#39;s!cache.ruby-lang.org/pub/ruby!ruby.taobao.org/mirrors/ruby!&#39;</span> <span class="vg">$rvm_path</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">db</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果遇到如下的提示信息：</p>
+
+<blockquote><p>You don&rsquo;t have write permissions</p></blockquote>
+
+<p>添加 <strong>sudo</strong> 这样的命令</p>
+
+<h3>3.3 安装Octopress</h3>
+
+<p>安装Octopress应该不是什么大问题，如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">git</span> <span class="nb">clone</span> <span class="ss">git</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">imathis</span><span class="o">/</span><span class="n">octopress</span><span class="o">.</span><span class="n">git</span> <span class="n">octopress</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">cd</span> <span class="n">octopress</span>
+</span><span class='line'><span class="n">gem</span> <span class="n">install</span> <span class="n">bundler</span>
+</span><span class='line'><span class="n">rbenv</span> <span class="n">rehash</span>
+</span><span class='line'><span class="n">bundle</span> <span class="n">install</span>
+</span><span class='line'><span class="n">rake</span> <span class="n">install</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>4、部署到Github</h2>
+
+<h3>预览</h3>
+
+<p>部署前可以在本地预览，输入</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">preview</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之后在浏览器输入<code>http://localhost:4000/</code>来访问</p>
+
+<h3>新建仓库</h3>
+
+<p>利用octopress的一个配置rake任务来自动配置上面创建的仓库：可以让我们方便的部署GitHub page。在终端输入如下命令：</p>
+
+<p>rake setup_github_pages
+弹出之后输入git@github.com:your_username/your_username.github.com.git不要用提示的io，我的是git@github.com/sgxiang/sgxiang.github.com.git</p>
+
+<p>输入以下命令部署博客</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
+</span><span class='line'><span class="n">rake</span> <span class="n">deploy</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>提交文件</h3>
+
+<p>博客的source需要单独提交，执行如下命令就可以将source提交到仓库的source分支下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</span><span class='line'><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;Initial source commit&#39;</span>
+</span><span class='line'><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>5、注意</h2>
+
+<p>Octopress 其实为你建立了 2 个分支。</p>
+
+<blockquote><p>一个是 master 分支，用于存放生成的最终网页。另一个是 source 分支，用于存放最初的原始 markdown 文件。</p>
+
+<p>平时写作和提交都在 source 分支下，当需要发布时，rake deploy 命令会将内容生成到 public 这个目录，然后将这个目录的内容当作 master 分支的内容同步到 github</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>
