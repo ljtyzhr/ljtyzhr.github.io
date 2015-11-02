@@ -16,7 +16,10 @@ categories:
  
 文章生成在目录下的`source/_posts`目录下，文章是markdown格式的，不熟悉该语法的同学可以去Google一下，这里不作太详细的解释。
 
+<!--more-->
+
 输入如上的命令之后，我们可以在`octopress/source/_posts`目录中找到我们生成的文件。该文件以时间和标题命名，一般格式如：`yyyy-mm-dd-Post-Title.markdown`，当我们打开生成的文件的时候，可以看到文件的内容如下：
+
 ```
 ---
 layout: post
@@ -37,8 +40,6 @@ categories:
 
 
 关于markdown的格式可以参考这篇文章：[http://wowubuntu.com/markdown/](http://wowubuntu.com/markdown/)
-
-<!--more-->
 
 使用Octopress写博客，主要掌握如下几个常用的命令就好：
 

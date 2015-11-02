@@ -12,6 +12,8 @@ categories:
 
 如果是想和我一样来修改主题的，那么先告诉大家一个好地方咯，如下是一些第三方主题，我们可以从中选出自己满意的：
 
+<!--more-->
+
 `https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes`
 
 
@@ -27,7 +29,6 @@ categories:
 这个主题的地址，如下：
 [**https://github.com/martinbjeldbak/classic-martinb**](https://github.com/martinbjeldbak/classic-martinb)
 
-<!--more-->
 
 ## 3、安装
 差点忘了，我们是要在命令行操作数据的，安装这个工作肯定也是放在命令行来咯。

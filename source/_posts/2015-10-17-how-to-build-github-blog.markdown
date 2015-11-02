@@ -20,6 +20,7 @@ Press RETURN to continue or any other key to abort
 ```
 
 所以按 return 键开始进行下载安装；下载成功的提示如下：
+<!--more-->
 
 ```
 ==> Installation successful!
@@ -44,7 +45,6 @@ ruby -v
 ```
 我们会在终端看到ruby的版本信息。
 
-<!--more-->
 
 ## 3、octopress
 

@@ -6,7 +6,6 @@ comments: true
 categories: 
 ---
 
-http://cn.soulmachine.me/blog/20130402/
 
 ## 1、首页显示摘要
 
@@ -15,13 +14,12 @@ http://cn.soulmachine.me/blog/20130402/
 ### 摘要
 
 不能忍，看到很多博客上都会显示摘要，然后一个 **`更多`** 这样的按钮，点击之后跳转到博客的详情页面上去，那么我该怎么做呢？
+<!--more-->
 好吧，其实也很简单，就是在我们所写好的文章中，添加一个标签，这个标签前面的内容，会显示在首页上，标签后面的内容就不会再显示出来，而是被**`更多`**或者**`Read On`**所替代。标签如下：
 
 > <!–- more -–>
 
 注意一个问题，这个只是一个摘要标识符，可以在`_config.yml`中通过`excerpt_separator`参数指定。由于使用了HTML的注释的写法，在博客正文中不会出现摘要标识符，标识符前的内容会在博客正文中显示。
-
-<!--more-->
 
 ### 汉化
 
@@ -53,4 +51,10 @@ default_asides: [asides/about.html, asides/recent_posts.html]
 
 ## 分类
 
+我们看到首页的右手边，有两个 **Posts** 项目，这里，我们可以找到“index.html”文件进行查找，删除其中对post文件的引用即可，如下：
 
+```
+include asides/recent_posts.html
+```
+
+删除这一句之后，我们预览一下就可以看到，右手边的导航，只剩下一个最近目录。
