@@ -4,7 +4,7 @@
   <title><![CDATA[Ljtyzhr's Blog]]></title>
   <link href="http://ljtyzhr.github.io/atom.xml" rel="self"/>
   <link href="http://ljtyzhr.github.io/"/>
-  <updated>2015-10-25T14:48:43+08:00</updated>
+  <updated>2015-11-02T22:56:17+08:00</updated>
   <id>http://ljtyzhr.github.io/</id>
   <author>
     <name><![CDATA[ljtyzhr]]></name>
@@ -18,23 +18,22 @@
     <link href="http://ljtyzhr.github.io/blog/2015/10/21/change-special-style/"/>
     <updated>2015-10-21T19:32:51+08:00</updated>
     <id>http://ljtyzhr.github.io/blog/2015/10/21/change-special-style</id>
-    <content type="html"><![CDATA[<p><a href="http://cn.soulmachine.me/blog/20130402/">http://cn.soulmachine.me/blog/20130402/</a></p>
-
-<h2>1、首页显示摘要</h2>
+    <content type="html"><![CDATA[<h2>1、首页显示摘要</h2>
 
 <p>当我写了三四篇文章，并发布在博客上之后，我发现了一个问题，就是这些文章会很坑爹，它让我感到很不爽的一点就是我要找到一篇文章会很困难，在首页上，他会显示出我的整个文章，而不是显示摘要！！！</p>
 
 <h3>摘要</h3>
 
-<p>不能忍，看到很多博客上都会显示摘要，然后一个 <strong><code>更多</code></strong> 这样的按钮，点击之后跳转到博客的详情页面上去，那么我该怎么做呢？
-好吧，其实也很简单，就是在我们所写好的文章中，添加一个标签，这个标签前面的内容，会显示在首页上，标签后面的内容就不会再显示出来，而是被<strong><code>更多</code></strong>或者<strong><code>Read On</code></strong>所替代。标签如下：</p>
+<p>不能忍，看到很多博客上都会显示摘要，然后一个 <strong><code>更多</code></strong> 这样的按钮，点击之后跳转到博客的详情页面上去，那么我该怎么做呢？</p>
+
+<!--more-->
+
+
+<p>好吧，其实也很简单，就是在我们所写好的文章中，添加一个标签，这个标签前面的内容，会显示在首页上，标签后面的内容就不会再显示出来，而是被<strong><code>更多</code></strong>或者<strong><code>Read On</code></strong>所替代。标签如下：</p>
 
 <blockquote><p>&lt;!–- more -–></p></blockquote>
 
 <p>注意一个问题，这个只是一个摘要标识符，可以在<code>_config.yml</code>中通过<code>excerpt_separator</code>参数指定。由于使用了HTML的注释的写法，在博客正文中不会出现摘要标识符，标识符前的内容会在博客正文中显示。</p>
-
-<!--more-->
-
 
 <h3>汉化</h3>
 
@@ -69,6 +68,14 @@
 
 
 <h2>分类</h2>
+
+<p>我们看到首页的右手边，有两个 <strong>Posts</strong> 项目，这里，我们可以找到“index.html”文件进行查找，删除其中对post文件的引用即可，如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>include asides/recent_posts.html</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除这一句之后，我们预览一下就可以看到，右手边的导航，只剩下一个最近目录。</p>
 ]]></content>
   </entry>
   
@@ -84,6 +91,9 @@
 
 <p>如果是想和我一样来修改主题的，那么先告诉大家一个好地方咯，如下是一些第三方主题，我们可以从中选出自己满意的：</p>
 
+<!--more-->
+
+
 <p><code>https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes</code></p>
 
 <h2>2、地址</h2>
@@ -96,9 +106,6 @@
 
 <p>这个主题的地址，如下：
 <a href="https://github.com/martinbjeldbak/classic-martinb"><strong>https://github.com/martinbjeldbak/classic-martinb</strong></a></p>
-
-<!--more-->
-
 
 <h2>3、安装</h2>
 
@@ -182,6 +189,11 @@
 
 <p>所以，命令行如下：</p>
 
+<!--more-->
+
+
+
+
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress</span></code></pre></td></tr></table></div></figure>
 
@@ -205,9 +217,6 @@
 
 
 <p>如上<strong> # </strong>之后的解释，这里就不再过多的说明了，按照上面的意思进行修改即可。</p>
-
-<!--more-->
-
 
 <h2>3、链接格式</h2>
 
@@ -273,6 +282,9 @@
 
 <p>文章生成在目录下的<code>source/_posts</code>目录下，文章是markdown格式的，不熟悉该语法的同学可以去Google一下，这里不作太详细的解释。</p>
 
+<!--more-->
+
+
 <p>输入如上的命令之后，我们可以在<code>octopress/source/_posts</code>目录中找到我们生成的文件。该文件以时间和标题命名，一般格式如：<code>yyyy-mm-dd-Post-Title.markdown</code>，当我们打开生成的文件的时候，可以看到文件的内容如下：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -304,9 +316,6 @@
 
 
 <p>关于markdown的格式可以参考这篇文章：<a href="http://wowubuntu.com/markdown/">http://wowubuntu.com/markdown/</a></p>
-
-<!--more-->
-
 
 <p>使用Octopress写博客，主要掌握如下几个常用的命令就好：</p>
 
@@ -369,6 +378,11 @@
 
 <p>所以按 return 键开始进行下载安装；下载成功的提示如下：</p>
 
+<!--more-->
+
+
+
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -397,9 +411,6 @@
 
 
 <p>我们会在终端看到ruby的版本信息。</p>
-
-<!--more-->
-
 
 <h2>3、octopress</h2>
 

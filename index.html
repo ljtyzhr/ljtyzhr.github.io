@@ -9,7 +9,7 @@
   <meta name="author" content="ljtyzhr">
 
   
-  <meta name="description" content="http://cn.soulmachine.me/blog/20130402/ 1、首页显示摘要 当我写了三四篇文章，并发布在博客上之后，我发现了一个问题，就是这些文章会很坑爹，它让我感到很不爽的一点就是我要找到一篇文章会很困难，在首页上，他会显示出我的整个文章，而不是显示摘要！！！ 摘要 不能忍 &hellip;">
+  <meta name="description" content="1、首页显示摘要 当我写了三四篇文章，并发布在博客上之后，我发现了一个问题，就是这些文章会很坑爹，它让我感到很不爽的一点就是我要找到一篇文章会很困难，在首页上，他会显示出我的整个文章，而不是显示摘要！！！ 摘要 不能忍，看到很多博客上都会显示摘要，然后一个 更多 这样的按钮， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,20 +95,13 @@
   </header>
 
 
-  <div class="entry-content"><p><a href="http://cn.soulmachine.me/blog/20130402/">http://cn.soulmachine.me/blog/20130402/</a></p>
-
-<h2>1、首页显示摘要</h2>
+  <div class="entry-content"><h2>1、首页显示摘要</h2>
 
 <p>当我写了三四篇文章，并发布在博客上之后，我发现了一个问题，就是这些文章会很坑爹，它让我感到很不爽的一点就是我要找到一篇文章会很困难，在首页上，他会显示出我的整个文章，而不是显示摘要！！！</p>
 
 <h3>摘要</h3>
 
-<p>不能忍，看到很多博客上都会显示摘要，然后一个 <strong><code>更多</code></strong> 这样的按钮，点击之后跳转到博客的详情页面上去，那么我该怎么做呢？
-好吧，其实也很简单，就是在我们所写好的文章中，添加一个标签，这个标签前面的内容，会显示在首页上，标签后面的内容就不会再显示出来，而是被<strong><code>更多</code></strong>或者<strong><code>Read On</code></strong>所替代。标签如下：</p>
-
-<blockquote><p>&lt;!–- more -–></p></blockquote>
-
-<p>注意一个问题，这个只是一个摘要标识符，可以在<code>_config.yml</code>中通过<code>excerpt_separator</code>参数指定。由于使用了HTML的注释的写法，在博客正文中不会出现摘要标识符，标识符前的内容会在博客正文中显示。</p>
+<p>不能忍，看到很多博客上都会显示摘要，然后一个 <strong><code>更多</code></strong> 这样的按钮，点击之后跳转到博客的详情页面上去，那么我该怎么做呢？</p>
 
 </div>
   
@@ -156,19 +149,6 @@
 
 <p>如果是想和我一样来修改主题的，那么先告诉大家一个好地方咯，如下是一些第三方主题，我们可以从中选出自己满意的：</p>
 
-<p><code>https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes</code></p>
-
-<h2>2、地址</h2>
-
-<p>这个不用说太多吧，看中了之后就开始找下载地址了，我选中的主题是：<strong>classic-martinb</strong></p>
-
-<p>它的整个界面风格如下：</p>
-
-<p><img src="https://raw.githubusercontent.com/martinbjeldbak/classic-martinb/master/classic-martinb.png" alt="这里有一幅图，可能加载比较慢而已，稍等！" /></p>
-
-<p>这个主题的地址，如下：
-<a href="https://github.com/martinbjeldbak/classic-martinb"><strong>https://github.com/martinbjeldbak/classic-martinb</strong></a></p>
-
 </div>
   
   
@@ -213,30 +193,6 @@
 <p>其实这里谈到的准备工作，十分简洁。我们的每一个命令，都是要进入到命令行（有时候也叫做终端）进行的。因为我们的博客使用了Octopress，所以我们需要在octopress目录下进行操作。</p>
 
 <p>所以，命令行如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>2、_config.yml</h2>
-
-<p>从名字我们就知道这个是一份配置文件，它到底有一些什么内容呢，抄一部分如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>url: http://yoursite.com  #这里改为你网站的域名
-</span><span class='line'>title: My Octopress Blog  #这里改为你想要的网站标题
-</span><span class='line'>subtitle: A blogging framework for hackers. #这里改为你的博客副标题
-</span><span class='line'>author: Your Name #这里改为博客作者的名字，也就是你的名字
-</span><span class='line'>simple_search: https://www.google.com/search #这是默认搜索引擎，可以先不管
-</span><span class='line'>description: #网站描述信息</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如上<strong> # </strong>之后的解释，这里就不再过多的说明了，按照上面的意思进行修改即可。</p>
 
 </div>
   
@@ -285,38 +241,6 @@
 </code></pre>
 
 <p>文章生成在目录下的<code>source/_posts</code>目录下，文章是markdown格式的，不熟悉该语法的同学可以去Google一下，这里不作太详细的解释。</p>
-
-<p>输入如上的命令之后，我们可以在<code>octopress/source/_posts</code>目录中找到我们生成的文件。该文件以时间和标题命名，一般格式如：<code>yyyy-mm-dd-Post-Title.markdown</code>，当我们打开生成的文件的时候，可以看到文件的内容如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>---
-</span><span class='line'>layout: post
-</span><span class='line'>title: "this is title"
-</span><span class='line'>date: 2015-10-17 21:59
-</span><span class='line'>comments: true
-</span><span class='line'>external-url:
-</span><span class='line'>categories:
-</span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在这里，我们看看上面的每一行都是什么意思：</p>
-
-<ul>
-<li><code>layout</code> 暂时不要理会；</li>
-<li><code>title</code> 是这篇文章显示在最终网页上的标题；</li>
-<li><code>date</code> 部分是详细的文件生成时间，如 2014-04-28 03:35:00；<code>comment</code> 部分表示是否允许评论，目前显示是允许，如果想关闭评论，请改为 false；</li>
-<li><code>categories</code> 指这篇文章的分类目录，请在后面引号中输入，如果没有该目录，则会自动生成。请不要删除这段信息，在这段信息下面开始你的文章内容。</li>
-</ul>
-
-
-<p>关于markdown的格式可以参考这篇文章：<a href="http://wowubuntu.com/markdown/">http://wowubuntu.com/markdown/</a></p>
 
 </div>
   
@@ -373,35 +297,6 @@
 
 <p>所以按 return 键开始进行下载安装；下载成功的提示如下：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">==&gt;</span> <span class="no">Installation</span> <span class="n">successful!</span>
-</span><span class='line'><span class="o">==&gt;</span> <span class="no">Next</span> <span class="n">steps</span>
-</span><span class='line'><span class="no">Run</span> <span class="sb">`brew help`</span> <span class="n">to</span> <span class="n">get</span> <span class="n">started</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>表示安装成功！</p>
-
-<h2>2、安装ruby</h2>
-
-<p>安装ruby的过程相对容易，输入下列命令：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">brew</span> <span class="n">install</span> <span class="n">rbenv</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>有的教程还有更多的命令，实际上现在已经全部安装完成了，我们并不需要再敲入更多的命令了，可以使用如下命令进行一定的检测，如下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">v</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>我们会在终端看到ruby的版本信息。</p>
-
 </div>
   
   
@@ -421,11 +316,11 @@
 </div>
 <aside class="sidebar">
   <section>
-  <p>Hi, I'm <a href="https://twitter.com/martinbjeldbak">Martin Bjeldbak Madsen</a>!</p>
+  <p>Hi, I'm Ljtyzhr!</p>
   
 
-  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/fapper">here</a>.</p>
-  <p>My resume can be found <a href="cv.pdf">here</a>.</p>
+  <p>You can read more about me on my <a href="/about/">about</a> page. To see what I'm working on, check out my GitHub page <a href="https://github.com/ljtyzhr">here</a>.</p>
+  
   <div class="social-icons">
     
 
@@ -442,36 +337,10 @@
   </div>
 </section>
 
-  <section>
-  <h1>Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2015/10/21/change-special-style/">自己动手DIY一下Octopress的风格</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/10/19/change-blog-theme/">更换一个个性化的主题风格</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/10/18/change-the-blog-config/">在Octopress中修改我们的博客配置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/10/17/how-to-write-blog/">如何使用Octopress写作和发布博客</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/10/17/how-to-build-github-blog/">使用Octopress在Github上搭建博客系统</a>
-      </li>
-    
-  </ul>
-</section>
-
+  
   
     <section>
-  <h1>Posts</h1>
+  <h1>最近发表</h1>
   <ul id="recent_posts">
     
       <li class="post">
